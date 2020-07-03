@@ -32,6 +32,7 @@ urlpatterns = [
     path('privacy-policy', privacy_policy),
     path('faq', faq),
     path('tos', tos),
+    path('dytk', home),
     path('withoutthewatermark', withoutthewatermark),
 
 

@@ -93,9 +93,9 @@ def load_media(url, path):
 
     # 生成13位时间戳
     suffixes = str(int(round(time.time() * 1000)))
-    path = ''.join([basepath,'/media/', path, '/', '.'.join([suffixes, path])])
-
-    content_length = do_load_media(url, path)
+    path = ''.join(['/media/', path, '/', '.'.join([suffixes, path])])
+    targetpath = ''.join([basepath, path])
+    content_length = do_load_media(url, targetpath)
     return path, content_length
 
 
