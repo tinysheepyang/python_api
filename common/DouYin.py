@@ -1,52 +1,26 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2020-07-03 13:10
+# @Author  : chenshiyang
+# @Email   : chenshiyang@blued.com
+# @File    : DouYin.py
+# @Software: PyCharm
+
+
 import re
 from urllib.parse import urlparse
-
 import requests
-from django.shortcuts import render
 
-# Create your views here.
-from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
-
-
-from common.custom_viewset_base import CustomViewBase
 from common.utils import format_duration
 
 
-class DouyinModelViewSet(CustomViewBase):
-    """
-        list:
-        返回对应配置信息列表
+class DY(object):
 
-        retrieve:
-        返回配置信息详情
+    def __init__(self, app=None):
+        self.app = app
+        if app is not None:
+            self.init_app(app)
 
-        create:
-        创建配置
-
-        update:
-        修改配置
-
-        destroy:
-        删除配置
-    """
-
-    serializer_class = None
-    queryset = None
-
-    # 过滤
-    filter_fields = ('id',)
-
-    # 排序
-    ordering_fields = ('id',)
-
-    permission_classes = (AllowAny,)
-
-
-
-    headers = {
+        self.headers = {
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
             # 'accept-encoding': 'gzip, deflate, br',
             'accept-language': 'zh-CN,zh;q=0.9',
@@ -61,26 +35,22 @@ class DouyinModelViewSet(CustomViewBase):
             'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'
         }
 
-    domain = ['www.douyin.com',
+        self.domain = ['www.douyin.com',
                        'v.douyin.com',
                        'www.snssdk.com',
                        'www.amemv.com',
                        'www.iesdouyin.com',
                        'aweme.snssdk.com']
 
+    def init_app(self, app):
+        self.app = app
 
-    @action(methods=['post', 'get'], detail=True)
-    def parse(self, request, pk):
-        url = request.data.get('url', None) or request.POST.get('url', None)
-
-        assert url != None
-
+    def parse(self, url):
         share_url = self.get_share_url(url)
         share_url_parse = urlparse(share_url)
 
         if share_url_parse.netloc not in self.domain:
             raise Exception("无效的链接")
-
         dytk = None
         vid = re.findall(r'\/share\/video\/(\d*)', share_url_parse.path)[0]
         match = re.search(r'\/share\/video\/(\d*)', share_url_parse.path)
@@ -98,11 +68,7 @@ class DouyinModelViewSet(CustomViewBase):
             dytk = match.group(1)
 
         if vid:
-            data = self.get_data(vid, dytk)
-            # return Response({"statusCode": "000000", "messages": "success", "data":data}, status=status.HTTP_200_OK)
-            ret = Response({"statusCode": "000000", "messages": "success", "data":data}, status=status.HTTP_200_OK)
-            ret['Access-Control-Allow-Origin'] = "*"
-            return ret
+            return self.get_data(vid, dytk)
         else:
             raise Exception("解析失败")
 
@@ -110,8 +76,11 @@ class DouyinModelViewSet(CustomViewBase):
         response = requests.get(url,
                                 headers=self.headers,
                                 allow_redirects=False)
+
         if 'location' in response.headers.keys():
             return response.headers['location']
+        elif '/share/video/' in url:
+            return url
         else:
             raise Exception("解析失败")
 
@@ -121,7 +90,6 @@ class DouyinModelViewSet(CustomViewBase):
         result = response.json()
         if not response.status_code == 200:
             raise Exception("解析失败")
-
         item = result.get("item_list")[0]
         author = item.get("author").get("nickname")
         mp4 = item.get("video").get("play_addr").get("url_list")[0]
@@ -140,25 +108,3 @@ class DouyinModelViewSet(CustomViewBase):
         data['desc'] = desc
         data['duration'] = format_duration(item.get("duration"))
         return data
-
-    @action(methods=['POST', 'GET'], detail=True)
-    def get_mp4(self, request, pk):
-        url = request.data.get('url', None)
-        print('url--------', url)
-        assert url != None
-
-        url = "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200fe70000br155v26tgq06h08e0lg&ratio=720p&line=0"
-
-        payload = {}
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'
-        }
-
-        response = requests.request("GET", url, headers=headers, data=payload)
-
-        # print(response.text.encode('utf8'))
-        ret = Response({"statusCode": "000000", "messages": "success", "data": response.text.encode('utf8')}, status=status.HTTP_200_OK)
-        ret['Access-Control-Allow-Origin'] = "*"
-        return ret
-
-

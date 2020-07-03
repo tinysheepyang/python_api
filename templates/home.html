@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <div class="jumbotron custom-jum no-mrg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="center">
+            <div class="home-search">
+              <h1>抖音无水印视频下载器</h1>
+              <h2>将抖音无水印视频下载到Mp4和Mp3</h2>
+            </div>
+            <div class="form-home-search">
+              <form id="form_download" action='/downloader' method='POST'>
+                <div class="input-group col-lg-10 col-md-10 col-sm-10">
+                  <input name="url" class="form-control input-md ht58" placeholder="输入抖音视频 URL ..." type="text"
+                    required="" value="">
+                  <span class="input-group-btn"><button class="btn btn-primary input-md btn-download ht58" type="submit"
+                      id="btn_submit">下载</button></span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row dytk">
+        <div class="col-md-12">
+          <div class="info">
+            <img id="cover" src="" alt="封面图"></img>
+          </div>
+          <div class="info">
+            <span id="nickname"></span>
+          </div>
+          <div class="info">
+            <span id="desc"></span>
+          </div>
+          <div class="info">
+            <span>MP3地址: </span><a id="mp3" href="" alt="mp3地址" target="_blank"></a>
+          </div>
+          <div class="info">
+            <span>MP4地址: </span><a id="mp4" href="" alt="mp4地址" target="_blank"></a>
+            <!-- <button type="button" class="btn btn-info"
+              onclick="download()">下载</button> -->
+          </div>
+          <div class="info">
+            <span id="duration"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <div class="wrap-txt">
+            <h3>
+              <strong>在线抖音无水印视频下载器</strong>
+            </h3>
+            <p>SaveDouyinVid是一个抖音无水印视频下载器，一个从抖音下载和保存无水印视频免费在线工具。</p>
+            <p>通过使用我们的下载器，您可以轻松地将抖音视频转换并下载到mp4，mp3并免费下载 - 此服务适用于计算机，平板电脑和移动设备。 您需要复制抖音视频URL并将其粘贴到上面的文本框中。
+              SaveDouyinVid将从视频链接中中提取无水印视频链接，您可以将抖音无水印视频或音频保存到您的计算机，Android或iPhone。</p>
+            <p>为什么选择我们的抖音无水印下载器来下载你的mp4 / mp3？ 我们的服务易于使用，不需要任何注册或费用。 SaveDouyinVid正是您所需要的。</p>
+          </div>
+          <div class="wrap-txt">
+            <h3>
+              <strong>如何使用Douyin Downloader？</strong>
+            </h3>
+            <ul class="lists-home">
+              <li>1.粘贴要下载的视频链接                       </li>
+              <li>2.单击“下载”按钮开始下载过程</li>
+              <li>3.选择要下载的mp4 / mp3格式，点击下载按钮</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

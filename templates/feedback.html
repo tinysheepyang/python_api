@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-content">
+  <div class="container">
+    <div class="col-lg-6 col-md-6 col-centered">
+      <div class="text-center mrg-bottom">
+        <span class="stitle">反馈</span>
+      </div>
+      <div class="form-feedback">
+        <form class="form-horizontal" method="post" action="/feedback">
+          <div class="form-group">
+            <div class="col-lg-12">
+              <input type="text" class="form-control" name="email" value="" placeholder="您的电子邮件地址" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              <input type="text" class="form-control" name="subject" value="" placeholder="你的主题" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              <textarea class="form-control" rows="6" name="message" placeholder="你的信息" required=""></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-standard box-shadow btn-lg btn-block">发送</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
