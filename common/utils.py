@@ -99,7 +99,6 @@ def load_media(url, path):
     return path, content_length
 
 
-
 def main(url, suffixes, path):
     load_media(url, suffixes, path)
 

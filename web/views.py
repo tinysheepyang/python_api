@@ -31,6 +31,10 @@ def download(request):
     mp4_path, mp4_content_length = load_media(data['mp4'], 'mp4')
     mp3_path, mp3_content_length = load_media(data['mp3'], 'mp3')
 
+    realpath = ''.join(['https://www.chenshiyang.com', mp4_path])
+
+    print('realpath---------------------', realpath)
+
     if len(data['desc'].split('#')) > 2:
         topic = data['desc'].split('#')[2].rstrip('#')
 

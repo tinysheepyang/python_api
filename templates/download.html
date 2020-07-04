@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="page-content">
+  <div class="page-content">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-centered">
@@ -14,8 +14,7 @@
           <div class="row">
             <div class="col-md-4 col-sm-4">
               <a href="{{mp4_path}}" data-toggle="modal" class="card-aside-column img-video"
-                style="height: 252px; background: url(&quot;{{data.cover}}&quot;) 0% 0% / cover;"
-                title="">
+                style="height: 252px; background: url(&quot;{{data.cover}}&quot;) 0% 0% / cover;" title="">
                 <span class="btn-play-video"><i class="glyphicon glyphicon-play"></i></span>
                 <p class="time-video" id="time">{{data.duration}}</p>
               </a>
@@ -38,8 +37,7 @@
                     <td>mp4</td>
                     <td>{{mp4_content_length}}</td>
                     <td>
-                      <a href="{{mp4_path}}"
-                        class="btn btn-download" rel="nofollow" download="">下载</a>
+                      <a href="{{mp4_path}}" class="btn btn-download" rel="nofollow" download="">下载</a>
                     </td>
                   </tr>
                   <tr>
@@ -47,8 +45,7 @@
                     <td>mp3</td>
                     <td>{{mp3_content_length}}</td>
                     <td>
-                      <a href="{{mp3_path}}"
-                        class="btn btn-download" rel="nofollow" download="">下载</a>
+                      <a href="{{mp3_path}}" class="btn btn-download" rel="nofollow" download="">下载</a>
                     </td>
                   </tr>
 
@@ -59,188 +56,28 @@
           </div>
         </div>
 
-<!--        <div class="card card-qrcode">-->
-<!--          <div class="row">-->
-<!--            <div class="col-md-12 qrcode">-->
-<!--              <div class="text-center">-->
-<!--                <p class="qrcode-p">扫描下面的二维码直接下载到您的智能手机或平板电脑！</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-4 col-centered qrcode">-->
-<!--              <div id="qrcode"-->
-<!--                title="https://video.twimg.com/amplify_video/1277520335760392198/vid/720x720/3kI-4ukFWZavaeSQ.mp4?tag=13">-->
-<!--                <canvas width="120" height="120" style="display: none;"></canvas><img-->
-<!--                  src="data:image/png;base64,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"-->
-<!--                  style="display: block;"></div>-->
-<!--              <script src="/public/assets/js/qrcode.min.js"></script>-->
-<!--              <script type="text/javascript">-->
-<!--                new QRCode(document.getElementById("qrcode"), {-->
-<!--                  text: "https://video.twimg.com/amplify_video/1277520335760392198/vid/720x720/3kI-4ukFWZavaeSQ.mp4?tag=13",-->
-<!--                  width: 120,-->
-<!--                  height: 120,-->
-<!--                  correctLevel: QRCode.CorrectLevel.L-->
-<!--                });-->
-<!--              </script>-->
-<!--            </div>-->
-<!--            <div class="col-md-4 text-center col-centered">-->
-<!--              <a class="dropbox-saver dropbox-dropin-btn dropbox-dropin-default"-->
-<!--                href="https://video.twimg.com/amplify_video/1277520335760392198/vid/720x720/3kI-4ukFWZavaeSQ.mp4?tag=13"><span-->
-<!--                  class="dropin-btn-status"></span>Save to Dropbox</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-<!--          <div class="modal-dialog" role="document">-->
-<!--            <div class="modal-content">-->
-<!--              <div class="modal-header">-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
-<!--                    aria-hidden="true">×</span></button>-->
-<!--                <h4 class="modal-title" id="myModalLabel">ABC News</h4>-->
-<!--              </div>-->
-<!--              <div class="modal-body">-->
-<!--                <div class="modal-body">-->
-<!--                  <div id="process-waiting">-->
-<!--                    <p class="p-t">-->
-<!--                      <b>请等待文件准备下载</b>-->
-<!--                    </p>-->
-<!--                    <div class="progress progress-striped progress-bar-warning active">-->
-<!--                      <div class="progress-bar progress-bar-success" style="width: 100%;">-->
-<!--                        <span>Loading...</span>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div id="process-result">-->
-<!--                    <script>-->
-<!--                      $(document).on('show.bs.modal', '#myModal', function (e) {-->
-
-<!--                        var button = $('#convertBtn');-->
-<!--                        var url = (button).data('url');-->
-<!--                        var type = (button).data('type');-->
-
-<!--                        $("#process-waiting").css('display', 'block');-->
-<!--                        $("#process-result").empty();-->
-
-<!--                        $.ajax({-->
-<!--                          type: "POST",-->
-<!--                          url: 'https://www.savetweetvid.com/zh/download_',-->
-<!--                          data: {-->
-<!--                            url: url,-->
-<!--                            type: type-->
-<!--                          },-->
-<!--                          success: function (data) {-->
-<!--                            $("#process-result").empty().append(data);-->
-<!--                          }-->
-<!--                        });-->
-
-<!--                      });-->
-<!--                    </script>-->
-<!--                  </div>-->
-<!--                  <div id="addthis" style="display: none;">-->
-<!--                    <p class="text-center">-->
-<!--                      感谢您使用我们的服务。 如果您可以与朋友分享我们的网站，那将是一个巨大的帮助。-->
-<!--                    </p>-->
-<!--                    <div class="addthis_inline_share_toolbox" data-url="https://www.savetweetvid.com/zh/downloader"-->
-<!--                      data-title="Twitter视频下载器 - 将Twitter视频下载到MP4和MP3" style="clear: both;">-->
-<!--                      <div id="atstbx"-->
-<!--                        class="at-resp-share-element at-style-responsive addthis-smartlayers addthis-animated at4-show"-->
-<!--                        aria-labelledby="at-0e93d868-a579-4ec5-b400-dc4800b47c1e" role="region"><span-->
-<!--                          id="at-0e93d868-a579-4ec5-b400-dc4800b47c1e" class="at4-visually-hidden">AddThis Sharing-->
-<!--                          Buttons</span>-->
-<!--                        <div class="at-share-btn-elements"><a role="button" tabindex="0"-->
-<!--                            class="at-icon-wrapper at-share-btn at-svc-facebook"-->
-<!--                            style="background-color: rgb(59, 89, 152); border-radius: 0px;"><span-->
-<!--                              class="at4-visually-hidden">Share to Facebook</span><span class="at-icon-wrapper"-->
-<!--                              style="line-height: 32px; height: 32px; width: 32px;"><svg-->
-<!--                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
-<!--                                viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-facebook-6"-->
-<!--                                style="fill: rgb(255, 255, 255); width: 32px; height: 32px;"-->
-<!--                                class="at-icon at-icon-facebook">-->
-<!--                                <title id="at-svg-facebook-6">Facebook</title>-->
-<!--                                <g>-->
-<!--                                  <path-->
-<!--                                    d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z"-->
-<!--                                    fill-rule="evenodd"></path>-->
-<!--                                </g>-->
-<!--                              </svg></span></a><a role="button" tabindex="0"-->
-<!--                            class="at-icon-wrapper at-share-btn at-svc-twitter"-->
-<!--                            style="background-color: rgb(29, 161, 242); border-radius: 0px;"><span-->
-<!--                              class="at4-visually-hidden">Share to Twitter</span><span class="at-icon-wrapper"-->
-<!--                              style="line-height: 32px; height: 32px; width: 32px;"><svg-->
-<!--                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
-<!--                                viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-twitter-7"-->
-<!--                                style="fill: rgb(255, 255, 255); width: 32px; height: 32px;"-->
-<!--                                class="at-icon at-icon-twitter">-->
-<!--                                <title id="at-svg-twitter-7">Twitter</title>-->
-<!--                                <g>-->
-<!--                                  <path-->
-<!--                                    d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336"-->
-<!--                                    fill-rule="evenodd"></path>-->
-<!--                                </g>-->
-<!--                              </svg></span></a><a role="button" tabindex="0"-->
-<!--                            class="at-icon-wrapper at-share-btn at-svc-email"-->
-<!--                            style="background-color: rgb(132, 132, 132); border-radius: 0px;"><span-->
-<!--                              class="at4-visually-hidden">Share to 電子郵件</span><span class="at-icon-wrapper"-->
-<!--                              style="line-height: 32px; height: 32px; width: 32px;"><svg-->
-<!--                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
-<!--                                viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-email-8"-->
-<!--                                style="fill: rgb(255, 255, 255); width: 32px; height: 32px;"-->
-<!--                                class="at-icon at-icon-email">-->
-<!--                                <title id="at-svg-email-8">Email</title>-->
-<!--                                <g>-->
-<!--                                  <g fill-rule="evenodd"></g>-->
-<!--                                  <path-->
-<!--                                    d="M27 22.757c0 1.24-.988 2.243-2.19 2.243H7.19C5.98 25 5 23.994 5 22.757V13.67c0-.556.39-.773.855-.496l8.78 5.238c.782.467 1.95.467 2.73 0l8.78-5.238c.472-.28.855-.063.855.495v9.087z">-->
-<!--                                  </path>-->
-<!--                                  <path-->
-<!--                                    d="M27 9.243C27 8.006 26.02 7 24.81 7H7.19C5.988 7 5 8.004 5 9.243v.465c0 .554.385 1.232.857 1.514l9.61 5.733c.267.16.8.16 1.067 0l9.61-5.733c.473-.283.856-.96.856-1.514v-.465z">-->
-<!--                                  </path>-->
-<!--                                </g>-->
-<!--                              </svg></span></a><a role="button" tabindex="0"-->
-<!--                            class="at-icon-wrapper at-share-btn at-svc-pinterest_share"-->
-<!--                            style="background-color: rgb(203, 32, 39); border-radius: 0px;"><span-->
-<!--                              class="at4-visually-hidden">Share to Pinterest</span><span class="at-icon-wrapper"-->
-<!--                              style="line-height: 32px; height: 32px; width: 32px;"><svg-->
-<!--                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
-<!--                                viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-pinterest_share-9"-->
-<!--                                style="fill: rgb(255, 255, 255); width: 32px; height: 32px;"-->
-<!--                                class="at-icon at-icon-pinterest_share">-->
-<!--                                <title id="at-svg-pinterest_share-9">Pinterest</title>-->
-<!--                                <g>-->
-<!--                                  <path-->
-<!--                                    d="M7 13.252c0 1.81.772 4.45 2.895 5.045.074.014.178.04.252.04.49 0 .772-1.27.772-1.63 0-.428-1.174-1.34-1.174-3.123 0-3.705 3.028-6.33 6.947-6.33 3.37 0 5.863 1.782 5.863 5.058 0 2.446-1.054 7.035-4.468 7.035-1.232 0-2.286-.83-2.286-2.018 0-1.742 1.307-3.43 1.307-5.225 0-1.092-.67-1.977-1.916-1.977-1.692 0-2.732 1.77-2.732 3.165 0 .774.104 1.63.476 2.336-.683 2.736-2.08 6.814-2.08 9.633 0 .87.135 1.728.224 2.6l.134.137.207-.07c2.494-3.178 2.405-3.8 3.533-7.96.61 1.077 2.182 1.658 3.43 1.658 5.254 0 7.614-4.77 7.614-9.067C26 7.987 21.755 5 17.094 5 12.017 5 7 8.15 7 13.252z"-->
-<!--                                    fill-rule="evenodd"></path>-->
-<!--                                </g>-->
-<!--                              </svg></span></a></div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="modal fade" id="myModalVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
-<!--          aria-hidden="true">-->
-<!--          <div class="modal-dialog" role="document">-->
-<!--            <div class="modal-content">-->
-<!--              <div class="modal-body">-->
-<!--                <div class="embed-responsive embed-responsive-16by9">-->
-<!--                  <video controls="controls" allowfullscreen="" id="video" controlslist="nodownload">-->
-<!--                    <source-->
-<!--                      src="https://video.twimg.com/amplify_video/1277520335760392198/vid/720x720/3kI-4ukFWZavaeSQ.mp4?tag=13"-->
-<!--                      type="video/mp4">-->
-<!--                  </video>-->
-<!--                  <div class="playpause"></div>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="card card-qrcode">
+          <div class="row">
+            <div class="col-md-12 qrcode">
+              <div class="text-center">
+                <p class="qrcode-p">扫描下面的二维码直接下载到您的智能手机或平板电脑！</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-centered qrcode">
+              <div id="qrcode" title="{{realpath}}">
+                <script src="/static/js/qrcode.min.js"></script>
+                <script type="text/javascript">
+                  new QRCode(document.getElementById("qrcode"), {
+                    text: "{{realpath}}",
+                    width: 120,
+                    height: 120,
+                    correctLevel: QRCode.CorrectLevel.L
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
